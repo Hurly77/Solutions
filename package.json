@@ -1,0 +1,19 @@
+{
+  "name": "hack",
+  "version": "1.0.0",
+  "description": "This is just a compilation of all the solutions I have done with code challanges",
+  "main": "utils.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hurly77/Solutions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hurly77/Solutions/issues"
+  },
+  "homepage": "https://github.com/Hurly77/Solutions#readme"
+}
