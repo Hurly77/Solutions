@@ -1,4 +1,8 @@
 class Test {
-  constructor(string, ){
+  constructor(string, int){
+    this.int = int
+    this.string = string
   }
+
+  
 }
