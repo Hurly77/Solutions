@@ -1,7 +1,7 @@
 const repeatedString = (s, n) => {
   let a = 0;
   let na = 0;
-  let end = n % s.length;
+   let end = n % s.length;
 
   for (let i = 0; i < s.length; i++) {
     s[i] === "a" ? (a += 1) : (na += 1);
