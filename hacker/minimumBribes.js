@@ -1,26 +1,18 @@
 let v = require('./data')
 const minimumBribes = (q) => {
-  let log = 0;
-  for (let i = 1; i < q.length; i++) {
-    let current = q[i - 1]
-    let next = q[i]
-    if(q[i - 1]/i > 2 && i != 1){
-      log = "Too chaotic"
-      break
+  let n = 0;
+  let p = 0;
+  for (let i = 0; i < q.length; i++) {
+    if((i+1)-(q[i]) < 0){
+     n += (i+1)-(q[i]) 
     }
-    if(log > 1000000){
-      log = "limit reached"
-      break}
-    
-    if(q[i - 1] > q[i]){
-      for (let j = 0; j < array.length; j++) {
-        
-
-      }
+    if((i+1)-(q[i]) > 0){
+      p+=1
     }
   }
-  return (log)
+  console.log(n, p)
+  return (n, p)
 }
 
-console.log(minimumBribes(v))
+console.log(minimumBribes([1,2,5,3,7,8,6,4]))
 //3, 2, 5, 4, 1
