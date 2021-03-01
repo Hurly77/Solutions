@@ -1,26 +1,28 @@
-let v = require('./data');
-let vs = v.split(' ');
+let v = require("./data");
+let vs = v.split(" ");
 const aa = () => {
-	for (let i = 0; i < vs.length; i++) {
-		parseInt(vs[i]);
-	}
-  return vs
+  for (let i = 0; i < vs.length; i++) {
+    parseInt(vs[i]);
+  }
+  return vs;
 };
 
-const myTest = (a) => {
-  let gt = 0
-  let lt = 0
-  let z = 0
-  for(let i = 0; i < a.length;i++){
-      lt += (a[i] - i+1 > 0 ? 1 : 0)
-      gt += (a[i] - (i+1) < 0 ? 1 : 0)
-      z += (a[i] - (i+1) === 0? 1: 0)
-      if(a[i]/(i+1) > 2 && (i+1) !== 1){
-        console.log("Too chaotic")
-        break
-      }
-      console.log(lt, gt, z, i)
+const myTest = (q) => {
+  let swaps = 0;
+
+  for (let i = 0; i < q.length; i++) {
+    let bribes = q[i] - (i + 1);
+    let maxAdvance = q[i] - 2 > 0 ? q[i] - 2 : 0;
+
+    if (bribes > 2) {
+      console.log("Too chaotic");
+      return;
+    }
+
+    for (let j = maxAdvance; j < i; j++) {
+      if (q[j] > q[i]) swaps++;
+    }
   }
-  console.log(gt + lt + z) 
-}
-myTest(aa())
+  console.log(swaps);
+};
+myTest(aa());
