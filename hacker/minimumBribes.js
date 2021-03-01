@@ -1,18 +1,26 @@
-let v = require('./data')
-const minimumBribes = (q) => {
-  let n = 0;
-  let p = 0;
-  for (let i = 0; i < q.length; i++) {
-    if((i+1)-(q[i]) < 0){
-     n += (i+1)-(q[i]) 
-    }
-    if((i+1)-(q[i]) > 0){
-      p+=1
-    }
-  }
-  console.log(n, p)
-  return (n, p)
-}
+let v = require('./data');
+let vs = v.split(' ');
+const aa = () => {
+	for (let i = 0; i < vs.length; i++) {
+		parseInt(vs[i]);
+	}
+  return vs
+};
 
-console.log(minimumBribes([1,2,5,3,7,8,6,4]))
-//3, 2, 5, 4, 1
+const myTest = (a) => {
+  let gt = 0
+  let lt = 0
+  let z = 0
+  for(let i = 0; i < a.length;i++){
+      lt += (a[i] - i+1 > 0 ? 1 : 0)
+      gt += (a[i] - (i+1) < 0 ? 1 : 0)
+      z += (a[i] - (i+1) === 0? 1: 0)
+      if(a[i]/(i+1) > 2 && (i+1) !== 1){
+        console.log("Too chaotic")
+        break
+      }
+      console.log(lt, gt, z, i)
+  }
+  console.log(gt + lt + z) 
+}
+myTest(aa())
