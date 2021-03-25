@@ -5,19 +5,23 @@ let queries = [[2, 6, 8],[3, 5, 7], [1, 8, 1], [5, 9, 15]]
 
 const arrayManipulation = (n, q) => {
   let arrOfZeros = new Array(n).fill(0)
+  let hashTable = {}
 
   for (let i = 0; i < q.length; i++) {
-    
-    for(let j = q[i][0] -1; j < q[i][1]; j++){
-      arrOfZeros[j] += q[i][2]
-    }
+    hashTable[i] = q[i]
   } 
+
+  for (let i = 0; i < arrOfZeros.length; i++) {
+    let key = `${i}`
+    console.log(hashTable[i], i)
+  }
+
   let max = 0
   for (let l = 0; l < arrOfZeros.length; l++) {
     arrOfZeros[l] > max ? max = arrOfZeros[l] : null
     
   }
-  return arrOfZeros
+  return hashTable
 }
 
 console.log(arrayManipulation(10, queries))
