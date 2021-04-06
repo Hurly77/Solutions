@@ -1,27 +1,44 @@
-//array of zeros, and a list of operations
-//for each operation add a value to each elm between two givin indices, inclusive
-//return the max value in the arraykk
-let queries = [[2, 6, 8],[3, 5, 7], [1, 8, 1], [5, 9, 15]]
+//We have and array of zeros the length of the array is expressed using n
+//our query array is and array of arrays.
+//each array inside query array represents index-a, index-b and value to add a, b, k
+// a is the start index b is the end index and k is the value to add to each index.
+//q = [[1, 3, 4]]
+//table = [0, 0, 0, 0, 0]
+//         1  2  3  4  5
+let q = (n) => {
+	let num = (int) => {
+		return Math.ceil(Math.random() * int);
+	};
+	let add = (int) => {
+		return Math.ceil(Math.random() * int * 2);
+	};
+	let array = new Array();
+	for (let i = 0; i < n; i++) {
+		array.push([num(n), num(n), add(n)]);
+	}
+	return array;
+};
 
 const arrayManipulation = (n, q) => {
-  let arrOfZeros = new Array(n).fill(0)
-  let hashTable = {}
-
-  for (let i = 0; i < q.length; i++) {
-    hashTable[i] = q[i]
-  } 
-
-  for (let i = 0; i < arrOfZeros.length; i++) {
-    let key = `${i}`
-    console.log(hashTable[i], i)
-  }
-
-  let max = 0
-  for (let l = 0; l < arrOfZeros.length; l++) {
-    arrOfZeros[l] > max ? max = arrOfZeros[l] : null
-    
-  }
-  return hashTable
-}
-
-console.log(arrayManipulation(10, queries))
+	let arrOfZeros = new Array(n + 1).fill(0);
+	let max = 0,
+		current = 0;
+	q.forEach(([start, end, value]) => {
+		arrOfZeros[start] = arrOfZeros[start] || { start: 0, end: 0 };
+		arrOfZeros[end] = arrOfZeros[end] || { start: 0, end: 0 };
+		arrOfZeros[start].start += value;
+		arrOfZeros[end].end += value;
+	});
+	arrOfZeros.forEach((object) => {
+		if (object) {
+			current += object.start;
+			if (current > max) {
+				max = current;
+			}
+			current -= object.end;
+		}
+	});
+	return max;
+};
+let myNum = 10000000;
+console.log(arrayManipulation(myNum, q(myNum)));
