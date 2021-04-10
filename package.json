@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Hurly77/Solutions#readme",
   "devDependencies": {
     "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@hurly77/rad-arrays": "^1.1.4"
   }
 }
